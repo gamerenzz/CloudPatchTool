@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- 生成程序名称 -->
+    <AssemblyName>云管家补丁工具</AssemblyName>
+    <RootNamespace>CloudPatchTool</RootNamespace>
+    
+    <!-- 架构与平台 -->
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+
+</Project>
