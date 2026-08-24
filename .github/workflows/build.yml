@@ -1,7 +1,8 @@
 name: Build and Release EXE
 
 on:
-  workflow_dispatch: # 支持在 GitHub 网页上点击按钮手动触发编译
+  workflow_dispatch: # 支持在 GitHub 网页手动点击运行
+
 
 jobs:
   build:
@@ -11,12 +12,9 @@ jobs:
     - name: 检出源码
       uses: actions/checkout@v4
 
-    - name: 配置 MSBuild
-      uses: microsoft/setup-msbuild@v2
-
-    - name: 编译 Release 可执行文件
+    - name: 编译 Release 可执行文件 (.NET 4.7.2)
       run: |
-        msbuild CloudPatchTool.csproj /p:Configuration=Release /p:Platform="Any CPU"
+        dotnet build CloudPatchTool.csproj -c Release
 
     - name: 上传构建产物 (EXE)
       uses: actions/upload-artifact@v4
