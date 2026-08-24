@@ -1,0 +1,26 @@
+name: Build and Release EXE
+
+on:
+
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: 检出源码
+      uses: actions/checkout@v4
+
+    - name: 配置 MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: 编译 Release 可执行文件
+      run: |
+        msbuild CloudPatchTool.csproj /p:Configuration=Release /p:Platform="Any CPU"
+
+    - name: 上传构建产物 (EXE)
+      uses: actions/upload-artifact@v4
+      with:
+        name: 云管家补丁工具-Net472
+        path: bin/Release/net472/云管家补丁工具.exe
