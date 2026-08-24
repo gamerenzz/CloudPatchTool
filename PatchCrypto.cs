@@ -9,7 +9,7 @@ namespace CloudPatchTool
     /// </summary>
     public static class PatchCrypto
     {
-        private static readonly byte[] Key = Encoding.UTF8.GetBytes("dongly");
+        private static readonly byte[] Key = Encoding.UTF8.GetBytes("dongyl");
         private static readonly byte[] Header = Encoding.UTF8.GetBytes("zip99991");
         private const int BufferSize = 64 * 1024; // 64 KB 缓冲区
 
